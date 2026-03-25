@@ -1,0 +1,36 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.apexcharts-canvas,
+.apexcharts-canvas *,
+.apexcharts-canvas:focus,
+.apexcharts-canvas *:focus,
+.apexcharts-canvas:focus-visible,
+.apexcharts-canvas *:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Gray border for active/selected pie segments */
+.apexcharts-canvas path.apexcharts-pie-area.apexcharts-selected {
+  stroke: #9ca3af !important;
+  stroke-width: 2 !important;
+}
+.apexcharts-canvas path.apexcharts-pie-area:hover {
+  cursor: pointer;
+}
+
