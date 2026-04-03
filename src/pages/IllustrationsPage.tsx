@@ -215,13 +215,13 @@ export default function IllustrationsPage() {
                       rel="noopener"
                     >
                       <img
-                        src={`/tabler/static/illustrations/light/${name}.png`}
+                        src={`/static/illustrations/light/${name}.png`}
                         alt={name}
                         className="img-light"
                         loading="lazy"
                       />
                       <img
-                        src={`/tabler/static/illustrations/dark/${name}.png`}
+                        src={`/static/illustrations/dark/${name}.png`}
                         alt={name}
                         className="img-dark"
                         loading="lazy"

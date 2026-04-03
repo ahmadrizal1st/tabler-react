@@ -16,7 +16,7 @@ export function UserCardBg({ person, photo, blurred }: UserCardBgProps) {
     <a className="card card-link" href="#">
       <div
         className={`card-cover card-cover-blurred text-center${blurred ? ' card-cover-blurred' : ''}`}
-        style={photo ? { backgroundImage: `url(/tabler/static/photos/${photo.file})` } : undefined}
+        style={photo ? { backgroundImage: `url(/static/photos/${photo.file})` } : undefined}
       >
         <Avatar size="xl" person={person} thumb shape="rounded" />
       </div>

@@ -83,7 +83,7 @@ export default function EmailsPage() {
                   }}
                 >
                   <img
-                    src={`/tabler/static/emails/${key}.jpg`}
+                    src={`/static/emails/${key}.jpg`}
                     className="img-fluid rounded"
                     alt={info.descriptionShort || key}
                     width={info.width}
@@ -122,7 +122,7 @@ export default function EmailsPage() {
                   <div className="col-6">
                     <div className="p-6 bg-surface-secondary rounded-start">
                       <img
-                        src={`/tabler/static/emails/${selectedEmail.key}.jpg`}
+                        src={`/static/emails/${selectedEmail.key}.jpg`}
                         className="img-fluid rounded-start"
                         alt={selectedEmail.info.descriptionShort || selectedEmail.key}
                       />

@@ -56,7 +56,7 @@ export function MusicTracksList({ tracks, limit = 12 }: MusicTracksListProps) {
               <div className="col-auto">
                 {track.album.images[1] && (
                   <img 
-                    src={`/tabler/static/tracks/${track.album.images[1].path}`} 
+                    src={`/static/tracks/${track.album.images[1].path}`} 
                     className="rounded" 
                     alt={track.name} 
                     width="40" 

@@ -6,7 +6,7 @@ import socials from '../data/socials.json';
 import { Trending } from '../components/ui/Trending';
 
 const getSocialIconStyle = (iconName: string, size?: string): React.CSSProperties => {
-  const iconUrl = `/tabler/static/brands/${iconName}.svg`;
+  const iconUrl = `/static/brands/${iconName}.svg`;
   
   // Default sizes based on Tabler's social-icons plugin
   let height = '2.5rem';

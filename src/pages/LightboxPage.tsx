@@ -34,7 +34,7 @@ export default function LightboxPage() {
               }}
             >
               <Photo
-                src={`/tabler/static/photos/${photo.file}`}
+                src={`/static/photos/${photo.file}`}
                 alt={photo.title}
                 ratio="1x1"
                 className="rounded border"
@@ -46,7 +46,7 @@ export default function LightboxPage() {
 
       <FsLightbox
         toggler={lightboxController.toggler}
-        sources={photos.map(p => `/tabler/static/photos/${p.file}`)}
+        sources={photos.map(p => `/static/photos/${p.file}`)}
         slide={lightboxController.slide}
       />
     </BaseLayout>

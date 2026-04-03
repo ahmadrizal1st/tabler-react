@@ -36,7 +36,7 @@ export function Photo({
     const photo = photos[id]
 
     if (photo) {
-      finalSrc = `/tabler/static/photos/${photo.file}`
+      finalSrc = `/static/photos/${photo.file}`
       finalAlt = finalAlt || photo.title
     } else {
       return (

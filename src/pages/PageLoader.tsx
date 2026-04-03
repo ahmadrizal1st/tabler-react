@@ -8,7 +8,7 @@ export default function PageLoader() {
       <div className="text-center">
         <div className="mb-3">
           <a href="/" className="navbar-brand navbar-brand-autodark">
-            <img src="/tabler/static/logo-small.svg" height="36" alt="" />
+            <img src="/static/logo-small.svg" height="36" alt="" />
           </a>
         </div>
         <div className="text-secondary mb-3">Preparing application</div>
