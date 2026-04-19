@@ -10,7 +10,7 @@ export default function WysiwygPage() {
     
     const options: any = {
       selector: `#hugerte-${id}`,
-      base_url: '/tabler/libs/hugerte',
+      base_url: '/libs/hugerte',
       suffix: '.min',
       height: 300,
       menubar: false,

@@ -63,7 +63,7 @@ export default function GalleryPage({ photos, people }: GalleryPageProps) {
               <GalleryPhotoCard
                 imageSrc={`/static/photos/${photo.file}`}
                 authorName={person.full_name}
-                authorAvatarSrc={person.photo ? `/tabler/${person.photo}` : undefined}
+                authorAvatarSrc={person.photo ? `/${person.photo}` : undefined}
                 date="2 days ago"
                 liked={photo.liked}
                 likes={photo.likes}

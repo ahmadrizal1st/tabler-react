@@ -52,8 +52,9 @@ function resolveAvatarUrl(url?: string): string | undefined {
     path = path.slice(1)
   }
 
+  // Remove tabler/ prefix if present to normalize
   if (path.startsWith('tabler/')) {
-    return `/${path}`
+    path = path.slice(7)
   }
 
   if (/^0\d{2}[mf]\.jpg$/i.test(path)) {
@@ -61,7 +62,7 @@ function resolveAvatarUrl(url?: string): string | undefined {
   }
 
   if (path.startsWith('static/')) {
-    return `/tabler/${path}`
+    return `/${path}`
   }
 
   if (path.startsWith('avatars/')) {
