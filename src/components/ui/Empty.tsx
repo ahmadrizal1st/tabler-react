@@ -36,7 +36,7 @@ export function Empty({
       {illustration ? (
         <div className="empty-img">
           <img
-            src={`/tabler/static/illustrations/${theme}/${illustration}.png`}
+            src={`/static/illustrations/${theme}/${illustration}.png`}
             style={{ width: illustrationSize, maxWidth: '100%', height: 'auto' }}
             alt=""
           />

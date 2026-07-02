@@ -1,6 +1,7 @@
 // src/routes/index.tsx
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { lazy, Suspense, type ComponentType } from 'react'
+import { useData } from '../context/DataContext'
 
 function load<P extends object>(factory: () => Promise<{ default: ComponentType<P> }>) {
   const Page = lazy(factory)
@@ -79,9 +80,9 @@ const ActivityPage = load(() => import('../pages/ActivityPage'))
 const ChatPage = load(() => import('../pages/ChatPage'))
 const EmailInboxPage = load(() => import('../pages/EmailInbox'))
 const CookieBannerPage = load<{ hide?: boolean }>(() => import('../pages/CookieBannerPage'))
-const FAQPage = load<{ faq: FAQCategory[] }>(() => import('../pages/FAQPage'))
+const FAQPage = load(() => import('../pages/FAQPage'))
 const GalleryPage = load(() => import('../pages/GalleryPage'))
-const JobListingPage = load<{ jobs: JobItem[] }>(() => import('../pages/JobListingPage'))
+const JobListingPage = load(() => import('../pages/JobListingPage'))
 const LogsPage = load(() => import('../pages/LogsPage'))
 const PayPage = load(() => import('../pages/PayPage'))
 const MusicPage = load(() => import('../pages/MusicPage'))
@@ -89,11 +90,11 @@ const PageLoader = load(() => import('../pages/PageLoader'))
 const PhotogridPage = load(() => import('../pages/PhotogridPage'))
 const PricingPage = load(() => import('../pages/PricingPage'))
 const PricingTablePage = load(() => import('../pages/PricingTablePage'))
-const SearchResultsPage = load<{ people: Person[]; photos: Photo[] }>(() => import('../pages/SearchResultsPage'))
+const SearchResultsPage = load(() => import('../pages/SearchResultsPage'))
 const SettingsPage = load(() => import('../pages/SettingsPage'))
 const SignaturesPage = load(() => import('../pages/SignaturesPage'))
 const TasksPage = load(() => import('../pages/TasksPage'))
-const TasksListPage = load<{ people: Person[] }>(() => import('../pages/TasksListPage'))
+const TasksListPage = load(() => import('../pages/TasksListPage'))
 const TextFeaturesPage = load(() => import('../pages/TextFeaturesPage'))
 const TrialEndedPage = load(() => import('../pages/TrialEndedPage'))
 const UptimePage = load(() => import('../pages/UptimePage'))
@@ -103,6 +104,8 @@ const Blank = load(() => import('../pages/Blank'))
 const EmptyPage = load(() => import('../pages/EmptyPage'))
 const Invoice = load(() => import('../pages/Invoice'))
 const License = load(() => import('../pages/License'))
+const Changelog = load(() => import('../pages/Changelog'))
+const Onboarding = load(() => import('../pages/Onboarding'))
 const Profile = load(() => import('../pages/Profile'))
 const Settings = load(() => import('../pages/Settings'))
 const TermsOfService = load(() => import('../pages/TermsOfService'))
@@ -145,45 +148,19 @@ const MarketingTestimonials = load(() => import('../pages/marketing/MarketingTes
 const MarketingText = load(() => import('../pages/marketing/MarketingText'))
 const MarketingRealEstate = load(() => import('../pages/marketing/MarketingRealEstate'))
 
-import type {
-  Person,
-  Commit,
-  Task,
-  Photo,
-  Project,
-  FAQCategory,
-  JobItem,
-  Mail,
-  CryptoCurrency,
-} from '../types'
+export default function AppRoutes() {
+  const {
+    people,
+    commits,
+    mails,
+    photos,
+    projects,
+    activity,
+    chats,
+    faq,
+    jobs,
+  } = useData()
 
-interface AppRoutesProps {
-  people?: Person[]
-  commits?: Commit[]
-  tasks?: Task[]
-  mails?: Mail[]
-  cryptoCurrencies?: CryptoCurrency[]
-  cryptoOrders?: { sell_orders: any[]; buy_orders: any[] }
-  cryptoMarkets?: any[]
-  photos?: Photo[]
-  projects?: Project[]
-  activity?: any[]
-  chats?: any[]
-  faq?: FAQCategory[]
-  jobs?: JobItem[]
-}
-
-export default function AppRoutes({
-  people = [],
-  commits = [],
-  mails = [],
-  photos = [],
-  projects = [],
-  activity = [],
-  chats = [],
-  faq = [],
-  jobs = [],
-}: AppRoutesProps) {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
@@ -273,13 +250,14 @@ export default function AppRoutes({
       <Route path="/text-features" element={<TextFeaturesPage />} />
       <Route path="/trial-ended" element={<TrialEndedPage />} />
       <Route path="/uptime" element={<UptimePage />} />
-      <Route path="/pay" element={<PayPage people={people} />} />
 
       {/* Pages */}
       <Route path="/blank" element={<Blank />} />
       <Route path="/empty" element={<EmptyPage />} />
       <Route path="/invoice" element={<Invoice />} />
       <Route path="/license" element={<License />} />
+      <Route path="/changelog" element={<Changelog />} />
+      <Route path="/onboarding" element={<Onboarding />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />

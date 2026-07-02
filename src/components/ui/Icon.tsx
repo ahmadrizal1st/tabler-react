@@ -1,5 +1,8 @@
 import { clsx } from 'clsx'
 import * as TablerIcons from '@tabler/icons-react'
+import type { ReactNode, ComponentType } from 'react'
+
+type TablerIconName = keyof typeof TablerIcons
 
 interface IconProps {
   icon: string
@@ -13,24 +16,45 @@ interface IconProps {
 }
 
 function toPascalCase(name: string): string {
-  return 'Icon' + name
-    .split('-')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join('')
+  return (
+    'Icon' +
+    name
+      .split('-')
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join('')
+  )
 }
 
-export function Icon({ icon, className, color, size, inline, filled, stroke, style }: IconProps) {
+export function Icon({
+  icon,
+  className,
+  color,
+  size,
+  inline,
+  filled,
+  stroke,
+  style,
+}: IconProps) {
   const componentName = toPascalCase(filled ? `${icon}-filled` : icon)
   const fallbackName = toPascalCase(icon)
 
-  let IconComponent =
-    (TablerIcons as any)[componentName] ||
-    (TablerIcons as any)[fallbackName] ||
-    (TablerIcons as any)[icon]
+  let IconComponent: ComponentType<Record<string, unknown>> | undefined =
+    TablerIcons[componentName as TablerIconName] ||
+    TablerIcons[fallbackName as TablerIconName] ||
+    TablerIcons[icon as TablerIconName]
 
   if (!IconComponent) {
-    const alternateName = 'Icon' + icon.split('-').map(p => p.toLowerCase() === 'x' ? 'X' : p.charAt(0).toUpperCase() + p.slice(1).toLowerCase()).join('')
-    IconComponent = (TablerIcons as any)[alternateName]
+    const alternateName =
+      'Icon' +
+      icon
+        .split('-')
+        .map((p) =>
+          p.toLowerCase() === 'x'
+            ? 'X'
+            : p.charAt(0).toUpperCase() + p.slice(1).toLowerCase(),
+        )
+        .join('')
+    IconComponent = TablerIcons[alternateName as TablerIconName]
   }
 
   if (!IconComponent) {
@@ -45,21 +69,25 @@ export function Icon({ icon, className, color, size, inline, filled, stroke, sty
           fontSize: '0.8em',
           textAlign: 'center',
           lineHeight: '1',
-          opacity: 0.5
+          opacity: 0.5,
         }}
         title={`Missing icon: ${icon}`}
-      >?</span>
+      >
+        ?
+      </span>
     )
   }
 
-  const isBuiltInSize = typeof size === 'string' && ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'].includes(size)
+  const isBuiltInSize =
+    typeof size === 'string' &&
+    ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'].includes(size)
 
   const classes = clsx(
     'icon',
     className,
     color && `text-${color}`,
     inline && 'icon-inline',
-    size && typeof size === 'string' && !isBuiltInSize && `icon-${size}`
+    size && typeof size === 'string' && !isBuiltInSize && `icon-${size}`,
   )
 
   const sizeMap: Record<string, number> = {
@@ -71,7 +99,8 @@ export function Icon({ icon, className, color, size, inline, filled, stroke, sty
     xl: 32,
   }
 
-  const normalizedSize = typeof size === 'string' ? sizeMap[size] || size : size
+  const normalizedSize =
+    typeof size === 'string' ? sizeMap[size] || size : size
 
   return (
     <IconComponent
@@ -79,11 +108,17 @@ export function Icon({ icon, className, color, size, inline, filled, stroke, sty
       size={normalizedSize}
       stroke={stroke}
       strokeWidth={stroke}
-      style={{ 
+      style={{
         strokeWidth: stroke,
-        width: typeof normalizedSize === 'number' ? `${normalizedSize}px` : undefined,
-        height: typeof normalizedSize === 'number' ? `${normalizedSize}px` : undefined,
-        ...style 
+        width:
+          typeof normalizedSize === 'number'
+            ? `${normalizedSize}px`
+            : undefined,
+        height:
+          typeof normalizedSize === 'number'
+            ? `${normalizedSize}px`
+            : undefined,
+        ...style,
       }}
       aria-hidden="true"
       focusable={false}

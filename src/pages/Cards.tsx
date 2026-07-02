@@ -214,7 +214,7 @@ export default function Cards() {
           <Card>
             <div className="row row-0">
               <div className="col-3">
-                <CardImage src="/tabler/static/photos/a-visit-to-the-bookstore.jpg" position="start" className="w-100 h-100 object-cover card-img-start" alt="Card side image" />
+                <CardImage src="/static/photos/a-visit-to-the-bookstore.jpg" position="start" className="w-100 h-100 object-cover card-img-start" alt="Card side image" />
               </div>
               <div className="col">
                 <CardBody>
@@ -229,7 +229,7 @@ export default function Cards() {
           <Card>
             <div className="row row-0">
               <div className="col-3 order-md-last">
-                <CardImage src="/tabler/static/photos/finances-us-dollars-and-bitcoins-currency-money.jpg" position="end" className="w-100 h-100 object-cover card-img-end" alt="Card side image" />
+                <CardImage src="/static/photos/finances-us-dollars-and-bitcoins-currency-money.jpg" position="end" className="w-100 h-100 object-cover card-img-end" alt="Card side image" />
               </div>
               <div className="col">
                 <CardBody>
@@ -242,7 +242,7 @@ export default function Cards() {
         </div>
         <div className="col-md-6 col-lg-3">
           <Card>
-            <CardImage src="/tabler/static/photos/beautiful-blonde-woman-on-a-wooden-pier-by-the-lake.jpg" position="top" alt="Card top image" />
+            <CardImage src="/static/photos/beautiful-blonde-woman-on-a-wooden-pier-by-the-lake.jpg" position="top" alt="Card top image" />
             <CardBody>
               <CardTitle>Card with top image</CardTitle>
               <p className="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis sed suscipit velit vitae voluptatem.</p>
@@ -255,7 +255,7 @@ export default function Cards() {
               <CardTitle>Card with bottom image</CardTitle>
               <p className="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis sed suscipit velit vitae voluptatem.</p>
             </CardBody>
-            <CardImage src="/tabler/static/photos/books-and-purple-flowers-on-a-wooden-stool-by-the-bed.jpg" position="bottom" alt="Card bottom image" />
+            <CardImage src="/static/photos/books-and-purple-flowers-on-a-wooden-stool-by-the-bed.jpg" position="bottom" alt="Card bottom image" />
           </Card>
         </div>
 
@@ -422,10 +422,10 @@ export default function Cards() {
               <div className="row align-items-center">
                 <div className="col-auto ms-auto">
                   <div className="avatar-list avatar-list-stacked">
-                    <span className="avatar avatar-sm rounded" style={{ backgroundImage: 'url(/tabler/static/avatars/000m.jpg)' }}></span>
-                    <span className="avatar avatar-sm rounded" style={{ backgroundImage: 'url(/tabler/static/avatars/001m.jpg)' }}></span>
-                    <span className="avatar avatar-sm rounded" style={{ backgroundImage: 'url(/tabler/static/avatars/002m.jpg)' }}></span>
-                    <span className="avatar avatar-sm rounded" style={{ backgroundImage: 'url(/tabler/static/avatars/003m.jpg)' }}></span>
+                    <span className="avatar avatar-sm rounded" style={{ backgroundImage: 'url(/static/avatars/000m.jpg)' }}></span>
+                    <span className="avatar avatar-sm rounded" style={{ backgroundImage: 'url(/static/avatars/001m.jpg)' }}></span>
+                    <span className="avatar avatar-sm rounded" style={{ backgroundImage: 'url(/static/avatars/002m.jpg)' }}></span>
+                    <span className="avatar avatar-sm rounded" style={{ backgroundImage: 'url(/static/avatars/003m.jpg)' }}></span>
                     <span className="avatar avatar-sm rounded">+3</span>
                   </div>
                 </div>
@@ -529,7 +529,7 @@ export default function Cards() {
           <Card>
             <div className="empty">
               <div className="empty-img">
-                <img src="/tabler/static/illustrations/light/not-found.png" style={{ height: '150px' }} alt="" />
+                <img src="/static/illustrations/light/not-found.png" style={{ height: '150px' }} alt="" />
               </div>
               <p className="empty-title">No results found</p>
               <p className="empty-subtitle text-secondary">
@@ -549,11 +549,11 @@ export default function Cards() {
             <div className="card-body text-center">
               <div className="mb-3">
                 <div className="avatar-list avatar-list-stacked">
-                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/tabler/static/avatars/000m.jpg)' }}></span>
-                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/tabler/static/avatars/052f.jpg)' }}></span>
-                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/tabler/static/avatars/002m.jpg)' }}></span>
-                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/tabler/static/avatars/003m.jpg)' }}></span>
-                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/tabler/static/avatars/000f.jpg)' }}></span>
+                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/static/avatars/000m.jpg)' }}></span>
+                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/static/avatars/052f.jpg)' }}></span>
+                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/static/avatars/002m.jpg)' }}></span>
+                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/static/avatars/003m.jpg)' }}></span>
+                  <span className="avatar avatar-sm avatar-rounded" style={{ backgroundImage: 'url(/static/avatars/000f.jpg)' }}></span>
                 </div>
               </div>
               <h3 className="card-title">No Team Members</h3>

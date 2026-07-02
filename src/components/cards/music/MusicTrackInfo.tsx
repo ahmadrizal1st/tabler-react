@@ -1,5 +1,6 @@
 // src/components/cards/music/MusicTrackInfo.tsx
 import type { Track } from './MusicTracksList'
+import { BaseCard } from '../../ui'
 
 interface MusicTrackInfoProps {
   track: Track
@@ -7,12 +8,12 @@ interface MusicTrackInfoProps {
 
 export function MusicTrackInfo({ track }: MusicTrackInfoProps) {
   return (
-    <div className="card">
+    <BaseCard>
       <div className="row row-0">
         <div className="col-auto">
           {track.album.images[1] && (
             <img 
-              src={`/tabler/static/tracks/${track.album.images[1].path}`} 
+              src={`/static/tracks/${track.album.images[1].path}`} 
               className="rounded-start" 
               alt={track.name} 
               width="80" 
@@ -30,6 +31,6 @@ export function MusicTrackInfo({ track }: MusicTrackInfoProps) {
           </div>
         </div>
       </div>
-    </div>
+    </BaseCard>
   )
 }

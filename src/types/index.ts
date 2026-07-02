@@ -1,5 +1,5 @@
 export interface Person {
-  id: number | string
+  id?: number | string
   full_name?: string
   first_name?: string
   last_name?: string
@@ -15,7 +15,13 @@ export interface Person {
   city?: string
   country_code?: string
   time_zone?: string
+  company?: string
   [key: string]: unknown
+}
+
+export interface ActivityItem {
+  text: string
+  icon?: string
 }
 
 export interface Commit {
@@ -29,13 +35,53 @@ export interface Commit {
 }
 
 export interface Task {
-  id: string | number
+  id?: string | number
+  name?: string
   title?: string
   status?: string
   priority?: string
   due_date?: string
+  assigned_to?: number
+  description?: string
+  color?: string
+  favorite?: boolean
+  starred?: boolean
+  users?: number
+  "users-offset"?: number
+  comments?: number
+  image?: string
+  likes?: number
+  subtasks?: Array<{ name: string; done?: boolean }>
+  checked?: boolean
   [key: string]: unknown
 }
+
+export interface TasksColumn {
+  name: string
+  tasks: Task[]
+}
+
+export interface TasksData {
+  columns: TasksColumn[]
+}
+
+export interface Invoice {
+  id?: string | number
+  invoice?: string
+  name?: string
+  country?: string
+  client?: string
+  'vat-no'?: string | number
+  vatNo?: string
+  date?: string
+  status?: string
+  'status-name'?: string
+  statusName?: string
+  price?: string
+  [key: string]: unknown
+}
+
+export type InvoicesData = Invoice[]
 
 export interface Mail {
   id: string | number
@@ -135,4 +181,20 @@ export interface NavItem {
   hideIcons?: boolean
   longTitles?: boolean
   disabled?: boolean
+}
+
+export interface ChatPerson {
+  id: number | string
+  full_name: string
+  photo?: string
+  avatar?: string
+}
+
+export interface ChatMessage {
+  personId: number | string
+  message?: string
+  timestamp?: string
+  loading?: boolean
+  gif?: string
+  'person-id'?: number | string
 }

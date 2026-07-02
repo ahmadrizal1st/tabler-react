@@ -3,60 +3,27 @@ import { useState } from 'react'
 import { Icon } from '../ui/Icon'
 import { Flag } from '../ui/Flag'
 import { DropdownMenu } from '../ui/DropdownMenu'
-
-interface Invoice {
-  name: string
-  country: string
-  client: string
-  'vat-no'?: string | number
-  vatNo?: string
-  date: string
-  status: string
-  'status-name'?: string
-  statusName?: string
-  price: string
-}
-
-const DEFAULT_INVOICES: Invoice[] = [
-  { name: 'Logo Creation', country: 'us', client: 'Carlson Limited', vatNo: '87956621', date: '15 Dec 2017', status: 'success', statusName: 'Paid', price: '$887,00' },
-  { name: 'Online Store Design & Development', country: 'gb', client: 'Adobe', vatNo: '87956621', date: '12 Apr 2017', status: 'warning', statusName: 'Pending', price: '$1.200,00' },
-  { name: 'App Design', country: 'de', client: 'Bluewolf', vatNo: '87956621', date: '23 Oct 2017', status: 'warning', statusName: 'Pending', price: '$534,00' },
-  { name: 'Design Logos', country: 'br', client: 'Salesforce', vatNo: '87956621', date: '2 Sep 2017', status: 'success', statusName: 'Paid', price: '$478,00' },
-  { name: 'Promotion Campaign', country: 'fr', client: 'Copywriter', vatNo: '87956621', date: '29 Jan 2018', status: 'success', statusName: 'Paid', price: '$3.500,00' },
-  { name: 'Packaging Design', country: 'us', client: 'Apple', vatNo: '87956621', date: '10 Feb 2018', status: 'danger', statusName: 'Overdue', price: '$2.100,00' },
-  { name: 'Brand Identity', country: 'es', client: 'Zara', vatNo: '87956621', date: '15 Mar 2018', status: 'success', statusName: 'Paid', price: '$1.800,00' },
-  { name: 'Consulting', country: 'it', client: 'Eni', vatNo: '87956621', date: '20 Apr 2018', status: 'warning', statusName: 'Pending', price: '$5.000,00' },
-  { name: 'Web Design', country: 'jp', client: 'Toyota', vatNo: '87956621', date: '25 May 2018', status: 'success', statusName: 'Paid', price: '$2.500,00' },
-  { name: 'Social Media Management', country: 'cn', client: 'Tencent', vatNo: '87956621', date: '30 Jun 2018', status: 'success', statusName: 'Paid', price: '$4.200,00' },
-  { name: 'SEO Optimization', country: 'in', client: 'Reliance', vatNo: '87956621', date: '15 Jul 2018', status: 'warning', statusName: 'Pending', price: '$1.200,00' },
-  { name: 'Content Marketing', country: 'kr', client: 'Samsung', vatNo: '87956621', date: '20 Aug 2018', status: 'success', statusName: 'Paid', price: '$3.000,00' },
-  { name: 'Email Marketing', country: 'ru', client: 'Gazprom', vatNo: '87956621', date: '25 Sep 2018', status: 'danger', statusName: 'Overdue', price: '$1.500,00' },
-  { name: 'PPC Campaign', country: 'ca', client: 'Shopify', vatNo: '87956621', date: '30 Oct 2018', status: 'success', statusName: 'Paid', price: '$2.800,00' },
-  { name: 'Influencer Marketing', country: 'au', client: 'Atlassian', vatNo: '87956621', date: '15 Nov 2018', status: 'warning', statusName: 'Pending', price: '$4.500,00' },
-  { name: 'Video Production', country: 'mx', client: 'Bimbo', vatNo: '87956621', date: '20 Dec 2018', status: 'success', statusName: 'Paid', price: '$6.000,00' },
-]
+import { Pagination as UIPagination } from '../ui/Pagination'
+import type { Invoice } from '../../types'
 
 function ActionsDropdown() {
   return <DropdownMenu right />
 }
 
-import { Pagination as UIPagination } from '../ui/Pagination'
-
-export function InvoicesCard({
-  invoices = DEFAULT_INVOICES,
-  limit: initialLimit = 8,
-}: {
+interface InvoicesCardProps {
   invoices?: Invoice[]
   limit?: number
-}) {
+}
+
+export function InvoicesCard({ invoices = [], limit: initialLimit = 8 }: InvoicesCardProps) {
   const [showCount, setShowCount] = useState(initialLimit.toString())
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
 
   const filteredInvoices = invoices.filter(
     (inv) =>
-      inv.name.toLowerCase().includes(search.toLowerCase()) ||
-      inv.client.toLowerCase().includes(search.toLowerCase())
+      (inv.name?.toLowerCase() || '').includes(search.toLowerCase()) ||
+      (inv.client?.toLowerCase() || '').includes(search.toLowerCase())
   )
 
   const limitNum = parseInt(showCount) || 8
@@ -142,7 +109,7 @@ export function InvoicesCard({
                     />
                   </td>
                   <td>
-                    <span className="text-secondary">00{displayIndex + 1401}</span>
+                    <span className="text-secondary">{invoice.invoice || `00${displayIndex + 1401}`}</span>
                   </td>
                   <td>
                     <a href="invoice.html" className="text-reset" tabIndex={-1}>
@@ -174,7 +141,7 @@ export function InvoicesCard({
         <div className="row g-2 justify-content-center justify-content-sm-between">
           <div className="col-auto d-flex align-items-center">
             <p className="m-0 text-secondary">
-              Showing <strong>{(page - 1) * limitNum + 1} to {Math.min(page * limitNum, filteredInvoices.length)}</strong> of <strong>{filteredInvoices.length} entries</strong>
+              Showing <strong>{(page - 1) * limitNum + 1} to {Math.min(page * limitNum, filteredInvoices.length)}</strong> of <strong>{filteredInvoices.length}</strong> entries
             </p>
           </div>
           <div className="col-auto">

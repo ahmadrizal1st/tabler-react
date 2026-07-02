@@ -69,7 +69,7 @@ export function Carousel({
               data-bs-target={`#${carouselId}`}
               data-bs-slide-to={i}
               className={clsx(indicatorsThumbRatio && 'ratio ratio-4x3', i === 0 && 'active')}
-              style={indicatorsThumb ? { backgroundImage: `url(/tabler/static/photos/${photo.file})` } : undefined}
+              style={indicatorsThumb ? { backgroundImage: `url(/static/photos/${photo.file})` } : undefined}
             />
           ))}
         </div>
@@ -81,7 +81,7 @@ export function Carousel({
             <img
               className="d-block w-100"
               alt={photo.alt ?? ''}
-              src={`/tabler/static/photos/${photo.file}`}
+              src={`/static/photos/${photo.file}`}
             />
             {captions && (photo.captionTitle || photo.captionText) && (
               <>

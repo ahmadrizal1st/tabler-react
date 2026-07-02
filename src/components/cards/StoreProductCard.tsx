@@ -21,7 +21,7 @@ export function StoreProductCard({ product }: StoreProductCardProps) {
       <div className="card-body">
         <div className="mb-4 text-center">
           <img
-            src={`/tabler/static/products/${product.image}`}
+            src={`/static/products/${product.image}`}
             alt={product.name}
             className="img-fluid"
           />

@@ -1,7 +1,7 @@
 // src/components/cards/SmallStatsCard.tsx
 // Matches shared/includes/cards/small-stats.html exactly
-import { Icon } from '../ui/Icon'
-
+import { clsx } from 'clsx'
+import { Icon, BaseCard } from '../ui'
 
 interface SmallStatsCardProps {
   icon?: string
@@ -20,13 +20,13 @@ export function SmallStatsCard({
   description = 'Users',
   className,
 }: SmallStatsCardProps) {
-  const avatarClass = [
-    icon && color ? `bg-${color}${lt ? '-lt' : ' text-white'}` : '',
-    'avatar avatar-square',
-  ].filter(Boolean).join(' ')
+  const avatarClass = clsx(
+    icon && color && `bg-${color}${lt ? '-lt' : ' text-white'}`,
+    'avatar avatar-square'
+  )
 
   return (
-    <div className={`card card-sm${className ? ` ${className}` : ''}`}>
+    <BaseCard size="sm" className={className}>
       <div className="card-body">
         <div className="row align-items-center">
           {icon && (
@@ -42,6 +42,6 @@ export function SmallStatsCard({
           </div>
         </div>
       </div>
-    </div>
+    </BaseCard>
   )
 }

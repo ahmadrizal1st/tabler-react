@@ -1,14 +1,16 @@
 // src/components/cards/UserCard.tsx
-import { Avatar } from '../ui/Avatar'
+import { Avatar, BaseCard } from '../ui'
+import { clsx } from 'clsx'
 
 import type { Person } from '../../types'
 
 interface UserCardProps {
   person?: Person
   right?: boolean
+  className?: string
 }
 
-export function UserCard({ person, right }: UserCardProps) {
+export function UserCard({ person, right, className }: UserCardProps) {
   if (!person) return null
 
   const avatarEl = (
@@ -17,18 +19,22 @@ export function UserCard({ person, right }: UserCardProps) {
     </div>
   )
 
+  const cardClasses = clsx('card-link', className)
+
   return (
-    <a className="card card-link" href="#">
-      <div className="card-body">
-        <div className="row">
-          {!right && avatarEl}
-          <div className="col">
-            <div className="fw-medium">{person.full_name}</div>
-            <div className="text-secondary">{person.job_title}</div>
+    <a className="card-link" href="#">
+      <BaseCard className={cardClasses}>
+        <div className="card-body">
+          <div className="row">
+            {!right && avatarEl}
+            <div className="col">
+              <div className="fw-medium">{person.full_name}</div>
+              <div className="text-secondary">{person.job_title}</div>
+            </div>
+            {right && avatarEl}
           </div>
-          {right && avatarEl}
         </div>
-      </div>
+      </BaseCard>
     </a>
   )
 }

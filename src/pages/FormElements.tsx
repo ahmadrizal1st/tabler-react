@@ -322,7 +322,7 @@ const FormSection3 = () => {
               <label className="form-imagecheck mb-2">
                 <input name="form-imagecheck" type="checkbox" value={i} className="form-imagecheck-input" defaultChecked={i === 1} />
                 <span className="form-imagecheck-figure">
-                  <img src={`/tabler/static/photos/${filename}`} alt={filename} className="form-imagecheck-image w-100 h-100 object-cover" style={{ aspectRatio: '4/3' }} />
+                  <img src={`/static/photos/${filename}`} alt={filename} className="form-imagecheck-image w-100 h-100 object-cover" style={{ aspectRatio: '4/3' }} />
                 </span>
               </label>
             </div>
@@ -345,7 +345,7 @@ const FormSection3 = () => {
               <label className="form-imagecheck mb-2">
                 <input name="form-imagecheck-radio" type="radio" value={i} className="form-imagecheck-input" defaultChecked={i === 0} />
                 <span className="form-imagecheck-figure">
-                  <img src={`/tabler/static/photos/${filename}`} alt={`Photo ${i}`} className="form-imagecheck-image w-100 h-100 object-cover" style={{ aspectRatio: '4/3' }} />
+                  <img src={`/static/photos/${filename}`} alt={`Photo ${i}`} className="form-imagecheck-image w-100 h-100 object-cover" style={{ aspectRatio: '4/3' }} />
                 </span>
               </label>
             </div>

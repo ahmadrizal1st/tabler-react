@@ -110,7 +110,7 @@ export default function JobListingPage({ jobs }: JobListingPageProps) {
                           <div 
                             className="avatar avatar-md border" 
                             style={{ 
-                              backgroundImage: `url(/tabler/static/jobs/${job.image})`,
+                              backgroundImage: `url(/static/jobs/${job.image})`,
                               backgroundColor: '#fff',
                               backgroundSize: 'contain'
                             }}

@@ -101,7 +101,7 @@ export default function TextFeaturesPage() {
                       <a className="mention" href="#">
                         <span
                           className="mention-avatar"
-                          style={{ backgroundImage: 'url(/tabler/static/avatars/035f.jpg)' }}
+                          style={{ backgroundImage: 'url(/static/avatars/035f.jpg)' }}
                         ></span>
                         <span className="visually-hidden">@</span>JohnDoe
                       </a>
@@ -154,7 +154,7 @@ export default function TextFeaturesPage() {
                   <a className="mention" href="#">
                     <span
                       className="mention-avatar"
-                      style={{ backgroundImage: 'url(/tabler/static/avatars/035f.jpg)' }}
+                      style={{ backgroundImage: 'url(/static/avatars/035f.jpg)' }}
                     ></span>
                     <span className="visually-hidden">@</span>JohnDoe
                   </a>
@@ -166,7 +166,7 @@ export default function TextFeaturesPage() {
                   <a className="mention" href="#">
                     <span
                       className="mention-avatar"
-                      style={{ backgroundImage: 'url(/tabler/static/avatars/035f.jpg)' }}
+                      style={{ backgroundImage: 'url(/static/avatars/035f.jpg)' }}
                     ></span>
                     <span className="visually-hidden">@</span>JaneSmith
                   </a>{' '}
@@ -174,7 +174,7 @@ export default function TextFeaturesPage() {
                   <a className="mention" href="#">
                     <span
                       className="mention-app"
-                      style={{ backgroundImage: 'url(/tabler/static/brands/messenger.svg)' }}
+                      style={{ backgroundImage: 'url(/static/brands/messenger.svg)' }}
                     ></span>
                     Messenger
                   </a>{' '}
@@ -182,7 +182,7 @@ export default function TextFeaturesPage() {
                   <a className="mention" href="#">
                     <span
                       className="mention-app"
-                      style={{ backgroundImage: 'url(/tabler/static/brands/netflix.svg)' }}
+                      style={{ backgroundImage: 'url(/static/brands/netflix.svg)' }}
                     ></span>
                     Netflix
                   </a>

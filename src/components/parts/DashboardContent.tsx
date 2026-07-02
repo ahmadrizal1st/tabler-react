@@ -1,6 +1,8 @@
 // src/components/parts/DashboardContent.tsx
 import { Button } from '../ui/Button'
 import { Modal, ModalHeader, ModalFooter } from '../ui/Modal'
+import { useData } from '../../context/DataContext'
+import type { Task } from '../../types'
 
 import { WelcomeCard } from '../cards/WelcomeCard'
 import { TotalUsersCard } from '../cards/charts/TotalUsersCard'
@@ -22,12 +24,6 @@ import { SponsorCard } from '../cards/SponsorCard'
 import { SocialTrafficCard } from '../cards/SocialTrafficCard'
 import { TasksCard } from '../cards/TasksCard'
 import { InvoicesCard } from '../cards/InvoicesCard'
-
-import activityData from '../../data/activity.json'
-import invoicesData from '../../data/invoices.json'
-import commitsData from '../../data/commits.json'
-import tasksData from '../../data/tasks.json'
-import peopleData from '../../data/people.json'
 
 export const dashboardHeaderActions = (
   <div className="btn-list">
@@ -53,7 +49,8 @@ export const dashboardHeaderActions = (
 )
 
 export function DashboardContent() {
-  const allTasks: any = ((tasksData as any).columns.flatMap((c: any) => c.tasks) as any[]).map((t: any) => ({ ...t, checked: t.status === 'success' }))
+  const { activity, people, commits, tasksData, invoicesData } = useData()
+  const allTasks: Task[] = tasksData.columns.flatMap((c) => c.tasks).map((t) => ({ ...t, checked: t.status === 'success' }))
 
   return (
     <>
@@ -111,13 +108,12 @@ export function DashboardContent() {
               <StorageUsageCard />
             </div>
             <div className="col-12">
-              <ActivityCard activity={activityData} people={peopleData} />
+              <ActivityCard activity={activity} people={people} />
             </div>
           </div>
         </div>
         <div className="col-lg-6">
-          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          <DevelopmentActivityCard commits={commitsData as any} people={peopleData as any} />
+          <DevelopmentActivityCard commits={commits} people={people} />
         </div>
 
         <div className="col-12">
@@ -135,12 +131,11 @@ export function DashboardContent() {
           <SocialTrafficCard />
         </div>
         <div className="col-md-12 col-lg-8">
-          <TasksCard tasks={allTasks as any[]} people={peopleData as any} />
+          <TasksCard tasks={allTasks} people={people} />
         </div>
 
         <div className="col-12">
-          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          <InvoicesCard invoices={invoicesData as any} />
+          <InvoicesCard invoices={invoicesData} />
         </div>
       </div>
 

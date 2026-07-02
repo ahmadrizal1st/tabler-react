@@ -5,13 +5,7 @@ import { Icon } from '../ui/Icon'
 import { Button } from '../ui/Button'
 import { Trending } from '../ui/Trending'
 import { ChartSparkline } from '../ui/ChartSparkline'
-
-interface Person {
-  id?: number
-  full_name?: string
-  photo?: string
-  job_title?: string
-}
+import type { Person } from '../../types'
 
 interface SmallStatsProps {
   id?: string

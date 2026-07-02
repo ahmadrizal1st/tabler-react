@@ -17,10 +17,10 @@ export default function PayPage({ people }: PayPageProps) {
       pageTitle="Pay" 
       noContainer={true}
     >
-      <div className="bg-dark bg-cover" style={{ backgroundImage: 'url(/tabler/static/bg-cover.jpg)', height: '20rem' }}>
+      <div className="bg-dark bg-cover" style={{ backgroundImage: 'url(/static/bg-cover.jpg)', height: '20rem' }}>
         <div className="bg-dark bg-opacity-75 h-100 pt-5 bg-blur">
           <div className="container container-tight bg-overlay h-100 d-flex align-items-end">
-            <img src="/tabler/static/bg-cover.jpg" alt="" className="img-fluid rounded-top" style={{ marginBottom: '-1px' }} />
+            <img src="/static/bg-cover.jpg" alt="" className="img-fluid rounded-top" style={{ marginBottom: '-1px' }} />
           </div>
         </div>
       </div>

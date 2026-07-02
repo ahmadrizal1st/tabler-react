@@ -1,16 +1,6 @@
 // src/components/cards/ActivityCard.tsx
 import { ActivityFeed } from '../parts/ActivityFeed'
-
-interface ActivityItem {
-  text: string
-}
-
-interface Person {
-  id?: number | string
-  full_name?: string
-  photo?: string
-  company?: string
-}
+import type { Person, ActivityItem } from '../../types'
 
 interface ActivityCardProps {
   activity?: ActivityItem[]

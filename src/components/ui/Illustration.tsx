@@ -18,7 +18,7 @@ export function Illustration({
 
   return (
     <img
-      src={`/tabler/static/illustrations/${theme}/${name}.png`}
+      src={`/static/illustrations/${theme}/${name}.png`}
       className={clsx('img', className)}
       style={{ height, width: 'auto' }}
       alt={alt}

@@ -20,7 +20,7 @@ export function StoreProductGrid({ products = [] }: StoreProductGridProps) {
           <div key={i} className="col-lg-3">
             <div className="card p-3">
               <img
-                src={`/tabler/static/products/${product.image}`}
+                src={`/static/products/${product.image}`}
                 alt={product.name}
                 className="mb-3"
               />

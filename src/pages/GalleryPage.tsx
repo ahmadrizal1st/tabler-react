@@ -61,7 +61,7 @@ export default function GalleryPage({ photos, people }: GalleryPageProps) {
           return (
             <div key={index} className="col-sm-6 col-lg-4">
               <GalleryPhotoCard
-                imageSrc={`/tabler/static/photos/${photo.file}`}
+                imageSrc={`/static/photos/${photo.file}`}
                 authorName={person.full_name}
                 authorAvatarSrc={person.photo ? `/tabler/${person.photo}` : undefined}
                 date="2 days ago"

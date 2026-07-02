@@ -3,34 +3,14 @@
 // table-selectable + form-check-input checkbox style matching Invoice card
 import { Icon } from '../ui/Icon'
 import { Avatar } from '../ui/Avatar'
+import type { Task, Person } from '../../types'
 
-// ── Static mock data (deterministic – no random) ────────────────────────────
-const DEFAULT_TASKS: any[] = []
-const DEFAULT_PEOPLE: any[] = []
-
-// Deterministic fake dates per index
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-function fakeDate(i: number) {
-  const month = MONTHS[(i * 3) % 12]
-  const day = ((i * 7 + 3) % 28) + 1
-  return `${month} ${String(day).padStart(2, '0')}, 2024`
-}
-
-function fakeCheckCount(i: number) { return (i * 3 + 1) % 7 }
-function fakeTotalCount(i: number) { return (i * 2 + 5) % 6 + 5 }
-function fakeMsgCount(i: number) { return (i * 5 + 2) % 13 }
-
-// ── Component ───────────────────────────────────────────────────────────────
-interface Task { name: string; checked?: boolean; [key: string]: any }
-interface Person { full_name?: string; photo?: string; [key: string]: any }
-
-export function TasksCard({
-  tasks = DEFAULT_TASKS,
-  people = DEFAULT_PEOPLE,
-}: {
+interface TasksCardProps {
   tasks?: Task[]
   people?: Person[]
-}) {
+}
+
+export function TasksCard({ tasks = [], people = [] }: TasksCardProps) {
   return (
     <div className="card">
       <div className="card-header">
@@ -57,24 +37,30 @@ export function TasksCard({
                     <a href="#" className="text-reset">{task.name}</a>
                   </td>
                   {/* Due date */}
-                  <td className="text-nowrap text-secondary">
-                    <Icon icon="calendar" className="me-1" />
-                    {fakeDate(index)}
-                  </td>
+                  {task.due_date && (
+                    <td className="text-nowrap text-secondary">
+                      <Icon icon="calendar" className="me-1" />
+                      {task.due_date}
+                    </td>
+                  )}
                   {/* Subtask progress */}
-                  <td className="text-nowrap">
-                    <a href="#" className="text-secondary">
-                      <Icon icon="check" className="me-1" />
-                      {fakeCheckCount(index)}/{fakeTotalCount(index)}
-                    </a>
-                  </td>
+                  {task.subtasks && (
+                    <td className="text-nowrap">
+                      <a href="#" className="text-secondary">
+                        <Icon icon="check" className="me-1" />
+                        {task.subtasks.filter(s => s.done).length}/{task.subtasks.length}
+                      </a>
+                    </td>
+                  )}
                   {/* Messages */}
-                  <td className="text-nowrap">
-                    <a href="#" className="text-secondary">
-                      <Icon icon="message" className="me-1" />
-                      {fakeMsgCount(index)}
-                    </a>
-                  </td>
+                  {task.comments !== undefined && (
+                    <td className="text-nowrap">
+                      <a href="#" className="text-secondary">
+                        <Icon icon="message" className="me-1" />
+                        {task.comments}
+                      </a>
+                    </td>
+                  )}
                   {/* Avatar */}
                   <td>
                     <Avatar

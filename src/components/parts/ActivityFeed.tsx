@@ -1,16 +1,6 @@
 // src/components/parts/ActivityFeed.tsx
 import { Avatar } from '../ui/Avatar'
-
-interface ActivityItem {
-  text: string
-}
-
-interface Person {
-  id?: number | string
-  full_name?: string
-  photo?: string
-  company?: string
-}
+import type { Person, ActivityItem } from '../../types'
 
 interface ActivityFeedProps {
   activity?: ActivityItem[]
@@ -18,7 +8,11 @@ interface ActivityFeedProps {
   limit?: number
 }
 
-export function ActivityFeed({ activity = [], people = [], limit = 40 }: ActivityFeedProps) {
+export function ActivityFeed({
+  activity = [],
+  people = [],
+  limit = 40,
+}: ActivityFeedProps) {
   const items = activity.slice(0, limit)
 
   return (
@@ -36,7 +30,7 @@ export function ActivityFeed({ activity = [], people = [], limit = 40 }: Activit
                 <Avatar person={person} />
               </div>
               <div className="col">
-                <div className="text-truncate" dangerouslySetInnerHTML={{ __html: text }}/>
+                <div className="text-truncate" dangerouslySetInnerHTML={{ __html: text }} />
                 <div className="text-secondary">{index + 1}h ago</div>
               </div>
               {index < 5 && (

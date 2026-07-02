@@ -592,22 +592,22 @@ export default function AllElementsPage() {
                 <TimelineItem time="1 day ago" title="+290 Page Likes" description="This is great, keep it up!" icon="brand-facebook" />
                 <TimelineItem time="2 days ago" title="+3 Friend Requests" icon="user-plus">
                   <div className="avatar-list mt-3">
-                    <Avatar src="/tabler/static/avatars/000f.jpg" status="success" />
-                    <Avatar src="/tabler/static/avatars/001m.jpg" status="success" />
-                    <Avatar src="/tabler/static/avatars/002f.jpg" status="success" />
+                    <Avatar src="/static/avatars/000f.jpg" status="success" />
+                    <Avatar src="/static/avatars/001m.jpg" status="success" />
+                    <Avatar src="/static/avatars/002f.jpg" status="success" />
                   </div>
                 </TimelineItem>
                 <TimelineItem time="3 days ago" title="+3 New photos" icon="photo">
                   <div className="mt-3">
                     <div className="row g-2">
                       <div className="col-4">
-                        <div className="img-responsive img-responsive-21x9 rounded border" style={{ backgroundImage: 'url(/tabler/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg)' }}></div>
+                        <div className="img-responsive img-responsive-21x9 rounded border" style={{ backgroundImage: 'url(/static/photos/beautiful-blonde-woman-relaxing-with-a-can-of-coke-on-a-tree-stump-by-the-beach.jpg)' }}></div>
                       </div>
                       <div className="col-4">
-                        <div className="img-responsive img-responsive-21x9 rounded border" style={{ backgroundImage: 'url(/tabler/static/photos/a-visit-to-the-bookstore.jpg)' }}></div>
+                        <div className="img-responsive img-responsive-21x9 rounded border" style={{ backgroundImage: 'url(/static/photos/a-visit-to-the-bookstore.jpg)' }}></div>
                       </div>
                       <div className="col-4">
-                        <div className="img-responsive img-responsive-21x9 rounded border" style={{ backgroundImage: 'url(/tabler/static/photos/a-woman-works-at-a-desk-with-a-laptop-and-a-cup-of-coffee.jpg)' }}></div>
+                        <div className="img-responsive img-responsive-21x9 rounded border" style={{ backgroundImage: 'url(/static/photos/a-woman-works-at-a-desk-with-a-laptop-and-a-cup-of-coffee.jpg)' }}></div>
                       </div>
                     </div>
                   </div>

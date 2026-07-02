@@ -1,13 +1,6 @@
 import { clsx } from 'clsx'
 import { Icon } from './Icon'
-
-interface Person {
-  id?: number | string
-  full_name?: string
-  photo?: string
-  job_title?: string
-  email?: string
-}
+import type { Person } from '../../types'
 
 interface AvatarProps {
   src?: string
@@ -35,7 +28,7 @@ function getInitials(name: string): string {
   return name
     .split(' ')
     .filter(Boolean)
-    .map(n => n[0])
+    .map((n) => n[0])
     .slice(0, 2)
     .join('')
     .toUpperCase()
@@ -46,7 +39,7 @@ function resolveAvatarUrl(url?: string): string | undefined {
   if (url.startsWith('http') || url.startsWith('data:')) {
     return url
   }
-  
+
   let path = url
   if (path.startsWith('/')) {
     path = path.slice(1)
@@ -68,7 +61,7 @@ function resolveAvatarUrl(url?: string): string | undefined {
     return `/tabler/static/${path}`
   }
 
-  return `/${path}`
+  return `/tabler/${path}`
 }
 
 export function Avatar({
@@ -121,7 +114,9 @@ export function Avatar({
     className
   )
 
-  const style = resolvedSrc ? { backgroundImage: `url(${resolvedSrc})` } : undefined
+  const style = resolvedSrc
+    ? { backgroundImage: `url(${resolvedSrc})` }
+    : undefined
 
   return (
     <El
@@ -133,13 +128,17 @@ export function Avatar({
       {status && (
         <span className={clsx('badge', `bg-${status}`)}>
           {statusText}
-          {statusIcon && <Icon icon={statusIcon} className="avatar-status-icon" />}
+          {statusIcon && (
+            <Icon icon={statusIcon} className="avatar-status-icon" />
+          )}
         </span>
       )}
       {brand && (
         <span
           className="avatar-brand"
-          style={{ backgroundImage: `url(/tabler/static/brands/${brand}.svg)` }}
+          style={{
+            backgroundImage: `url(/tabler/static/brands/${brand}.svg)`,
+          }}
         />
       )}
       {!resolvedSrc && resolvedPlaceholder && resolvedPlaceholder}

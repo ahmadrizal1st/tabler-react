@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, type ReactNode } from 'react'
 import { clsx } from 'clsx'
 import { Icon } from './Icon'
 import { Avatar } from './Avatar'
+import type { Person } from '../../types'
 
 export interface DropdownItem {
   label: string
@@ -21,7 +22,7 @@ export interface DropdownMenuProps {
   check?: boolean
   radio?: boolean
   people?: boolean
-  peopleData?: any[]
+  peopleData?: Person[]
   flag?: boolean
   flagData?: { flag: string; name: string }[]
   header?: boolean
@@ -136,7 +137,7 @@ export function DropdownMenu({
           className={clsx('dropdown-item', selectedPerson === person.id && 'active')}
           onClick={(e) => {
             e.preventDefault()
-            setSelectedPerson(person.id)
+            setSelectedPerson(typeof person.id === 'number' ? person.id : null)
             setIsOpen(false)
           }}
         >

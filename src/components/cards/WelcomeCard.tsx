@@ -58,7 +58,7 @@ export function WelcomeCard({
           <div className="col-12 col-sm-auto d-flex justify-content-center">
             <a href="/illustrations">
               <img
-                src="/tabler/static/illustrations/light/good-info.png"
+                src="/static/illustrations/light/good-info.png"
                 style={{ height: '200px', width: 'auto' }}
                 alt="Good info illustration"
               />

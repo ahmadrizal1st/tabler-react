@@ -121,21 +121,21 @@ export default function Profile() {
                     <div className="row g-2">
                       <div className="col-4">
                         <img
-                          src="/tabler/static/photos/city-lights-reflected-in-the-water-at-night.jpg"
+                          src="/static/photos/city-lights-reflected-in-the-water-at-night.jpg"
                           className="rounded w-100"
                           alt="Photo 1"
                         />
                       </div>
                       <div className="col-4">
                         <img
-                          src="/tabler/static/photos/color-palette-guide-sample-colors-catalog-.jpg"
+                          src="/static/photos/color-palette-guide-sample-colors-catalog-.jpg"
                           className="rounded w-100"
                           alt="Photo 2"
                         />
                       </div>
                       <div className="col-4">
                         <img
-                          src="/tabler/static/photos/finances-us-background-background-of-hundred-dollar-bills.jpg"
+                          src="/static/photos/finances-us-background-background-of-hundred-dollar-bills.jpg"
                           className="rounded w-100"
                           alt="Photo 3"
                         />
