@@ -26,14 +26,14 @@ export function Flag({ flag = 'pl', size = 'xs', className }: FlagProps) {
   )
 
   const style: React.CSSProperties = {
-    backgroundImage: `url(/tabler/static/flags/${code}.svg)`,
+    backgroundImage: `url(/static/flags/${code}.svg)`,
     overflow: 'hidden',
   }
 
   return (
     <span className={classes} style={style}>
       <img
-        src={`/tabler/static/flags/${code}.svg`}
+        src={`/static/flags/${code}.svg`}
         alt=""
         style={{ width: '100%', height: '100%', display: 'block', objectFit: 'contain' }}
       />

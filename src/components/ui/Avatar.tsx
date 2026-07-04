@@ -45,23 +45,19 @@ function resolveAvatarUrl(url?: string): string | undefined {
     path = path.slice(1)
   }
 
-  if (path.startsWith('tabler/')) {
-    return `/${path}`
-  }
-
   if (/^0\d{2}[mf]\.jpg$/i.test(path)) {
-    return `/tabler/static/avatars/${path}`
+    return `/static/avatars/${path}`
   }
 
   if (path.startsWith('static/')) {
-    return `/tabler/${path}`
+    return `/${path}`
   }
 
   if (path.startsWith('avatars/')) {
-    return `/tabler/static/${path}`
+    return `/static/${path}`
   }
 
-  return `/tabler/${path}`
+  return `/static/${path}`
 }
 
 export function Avatar({
@@ -137,7 +133,7 @@ export function Avatar({
         <span
           className="avatar-brand"
           style={{
-            backgroundImage: `url(/tabler/static/brands/${brand}.svg)`,
+            backgroundImage: `url(/static/brands/${brand}.svg)`,
           }}
         />
       )}

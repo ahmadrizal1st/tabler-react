@@ -44,23 +44,19 @@ export function TasksCard({ tasks = [], people = [] }: TasksCardProps) {
                     </td>
                   )}
                   {/* Subtask progress */}
-                  {task.subtasks && (
-                    <td className="text-nowrap">
-                      <a href="#" className="text-secondary">
-                        <Icon icon="check" className="me-1" />
-                        {task.subtasks.filter(s => s.done).length}/{task.subtasks.length}
-                      </a>
-                    </td>
-                  )}
+                  <td className="text-nowrap">
+                    <a href="#" className="text-secondary">
+                      <Icon icon="check" className="me-1" />
+                      {task.subtasks ? task.subtasks.filter(s => s.done).length : 0}/{task.subtasks ? task.subtasks.length : 0}
+                    </a>
+                  </td>
                   {/* Messages */}
-                  {task.comments !== undefined && (
-                    <td className="text-nowrap">
-                      <a href="#" className="text-secondary">
-                        <Icon icon="message" className="me-1" />
-                        {task.comments}
-                      </a>
-                    </td>
-                  )}
+                  <td className="text-nowrap">
+                    <a href="#" className="text-secondary">
+                      <Icon icon="message" className="me-1" />
+                      {task.comments ?? 0}
+                    </a>
+                  </td>
                   {/* Avatar */}
                   <td>
                     <Avatar

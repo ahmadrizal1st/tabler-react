@@ -69,7 +69,7 @@ export function Tasks({ data }: TasksProps) {
                       {task.image && (
                         <div className="ratio ratio-16x9">
                           <img
-                            src={`/tabler/${task.image}`}
+                            src={`/${task.image}`}
                             className="rounded object-cover"
                             alt={task.name}
                           />
